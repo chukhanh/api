@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -14,6 +15,7 @@ import java.net.URI;
 import java.util.Optional;
 
 @RestController
+@Validated
 @RequestMapping("/api/v1")
 public class ProductController {
 
@@ -47,7 +49,6 @@ public class ProductController {
                     MediaType.APPLICATION_JSON_VALUE
             })
     @ResponseBody
-    @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<Product> create(@Valid @RequestBody Product insertProduct){
         Product insert = productService.create(insertProduct);
 

@@ -6,6 +6,7 @@ import com.tma.api.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.validation.Valid;
 import javax.validation.constraints.Past;
 import java.util.List;
 import java.util.Optional;
@@ -36,7 +37,7 @@ public class ProductService {
         return productRepository.findById(id);
     }
 
-    public Product create(Product insertProduct) {
+    public Product create(@Valid Product insertProduct) {
         Product copy = new Product(
                 insertProduct.getId(),
                 insertProduct.getProductName(),

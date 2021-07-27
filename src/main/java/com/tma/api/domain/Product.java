@@ -23,7 +23,7 @@ public class Product {
     private Long    id;
 
     @Column(name = "product_name")
-    @Min(value = 8, message = "About name of product must to be more 8 characters")
+    @Size(min = 8, message = "About name of product must to be more 8 characters")
     @NotEmpty(message = "Please provide a name")
     private String  productName;
 
