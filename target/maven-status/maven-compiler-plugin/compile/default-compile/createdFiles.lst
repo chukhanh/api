@@ -1,0 +1,7 @@
+com/tma/api/domain/Product$ProductBuilder.class
+com/tma/api/repository/ProductRepository.class
+com/tma/api/ApiApplication.class
+com/tma/api/domain/Product.class
+com/tma/api/controller/ProductController.class
+com/tma/api/service/ProductService.class
+com/tma/api/controller/ProductValidation.class

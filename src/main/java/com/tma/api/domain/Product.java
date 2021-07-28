@@ -19,38 +19,59 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    @NotNull(message = "the ID cannot be null")
     private Long    id;
 
     @Column(name = "product_name")
     @Size(min = 8, message = "About name of product must to be more 8 characters")
-    @NotEmpty(message = "Please provide a name")
+    @NotNull(message = "Please provide a name")
     private String  productName;
 
     @Column(name = "product_price")
-    @Max(value = 8, message = "About price of product must not to be more 8 characters")
+    @NotNull(message = "Please provide a price")
+    @Min(value = 5, message="min=6")
+//    @Max(value = 4, message = "About price of product must not to be more 8 characters")
     private String  price;
+
     @Column(name = "product_ranking")
+    @NotNull(message = "Please provide a ranking")
     @Size(min = 1, max = 2, message
             = "About Ranking must be between 1 and 2 characters")
     private String  ranking;
+
     @Column(name = "product_favorite")
+    @NotNull(message = "Please provide a favorite")
     private String favorite;
+
     @Column(name = "product_image")
+    @NotNull(message = "Please provide a image")
     private String  productImage;
+
     @Column(name = "product_type")
+    @NotNull(message = "Please provide a type")
     private String  productType;
+
     @Column(name = "product_ram")
+    @NotNull(message = "Please provide a ram")
     private String  ram;
+
     @Column(name = "product_ssd")
+    @NotNull(message = "Please provide a ssd")
     private String  ssd;
+
     @Column(name = "product_display")
+    @NotNull(message = "Please provide a display")
     private String  display;
+
     @Column(name = "product_cpu")
+    @NotNull(message = "Please provide a cpu")
     private String  cpu;
+
     @Column(name = "product_gpu")
+    @NotNull(message = "Please provide a gpu")
     private String  gpu;
+
     @Column(name = "product_diff")
+    @NotNull(message = "Please provide a ")
     private String  diff;
 
 

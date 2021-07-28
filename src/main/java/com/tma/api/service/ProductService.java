@@ -37,7 +37,7 @@ public class ProductService {
         return productRepository.findById(id);
     }
 
-    public Product create(@Valid Product insertProduct) {
+    public Product create(Product insertProduct) {
         Product copy = new Product(
                 insertProduct.getId(),
                 insertProduct.getProductName(),
