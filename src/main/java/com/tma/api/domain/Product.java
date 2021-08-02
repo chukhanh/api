@@ -19,23 +19,23 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Long    id;
+    private int    id;
 
     @Column(name = "product_name")
-    @Size(min = 8, message = "About name of product must to be more 8 characters")
+//    @Min(value = 8, message = "About name of product must to be more 8 characters")
     @NotNull(message = "Please provide a name")
     private String  productName;
 
     @Column(name = "product_price")
     @NotNull(message = "Please provide a price")
-    @Min(value = 5, message="min=6")
+//    @Min(value = 5, message="min=6")
 //    @Max(value = 4, message = "About price of product must not to be more 8 characters")
     private String  price;
 
     @Column(name = "product_ranking")
     @NotNull(message = "Please provide a ranking")
-    @Size(min = 1, max = 2, message
-            = "About Ranking must be between 1 and 2 characters")
+//    @Size(min = 1, max = 2, message
+//            = "About Ranking must be between 1 and 2 characters")
     private String  ranking;
 
     @Column(name = "product_favorite")

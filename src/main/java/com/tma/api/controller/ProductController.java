@@ -30,6 +30,12 @@ public class ProductController{
         this.productService = productService;
     }
 
+
+    @GetMapping("/")
+    public @ResponseBody String greeting() {
+        return productService.getWelcomeMessage();
+    }
+
     @GetMapping(value = "/product",
             produces = {
                     MediaType.APPLICATION_JSON_VALUE
@@ -44,7 +50,7 @@ public class ProductController{
                     MediaType.APPLICATION_JSON_VALUE
             })
     @ResponseBody
-    public ResponseEntity<Product> find(@PathVariable("id") Long id, Model model){
+    public ResponseEntity<Product> find(@PathVariable("id") int id, Model model){
         Optional<Product> item = productService.find(id);
 
         return ResponseEntity.of(item);
@@ -73,7 +79,7 @@ public class ProductController{
 
     @PutMapping(value = "/product/{id}")
     public ResponseEntity<Product> update(
-            @PathVariable("id") Long id,
+            @PathVariable("id") int id,
             @Valid @RequestBody Product updateProduct
     ){
         Optional<Product> updated = productService.update(id, updateProduct);
@@ -90,7 +96,7 @@ public class ProductController{
     }
 
     @DeleteMapping("/product/{id}")
-    public ResponseEntity<Product> delete(@PathVariable("id") Long id) {
+    public ResponseEntity<Product> delete(@PathVariable("id") int id) {
         productService.delete(id);
         return ResponseEntity.noContent().build();
     }

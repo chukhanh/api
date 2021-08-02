@@ -14,13 +14,18 @@ import java.util.Optional;
 @Service
 public class ProductService {
 
+    @Autowired
     private ProductRepository productRepository;
 
     public ProductService(ProductRepository productRepository) {
         this.productRepository = productRepository;
     }
 
+    public ProductService() {}
 
+    public String getWelcomeMessage() {
+        return "Hello World!";
+    }
     public Iterable<Product> list() {
         return productRepository.findAll();
     }
@@ -33,7 +38,7 @@ public class ProductService {
         return productRepository.saveAll(products);
     }
 
-    public Optional<Product> find(long id) {
+    public Optional<Product> find(int id) {
         return productRepository.findById(id);
     }
 
@@ -56,7 +61,7 @@ public class ProductService {
         return productRepository.save(copy);
     }
 
-    public Optional<Product> update(Long id, Product newProduct) {
+    public Optional<Product> update(int id, Product newProduct) {
         return productRepository.findById(id)
                 .map(old -> {
                     Product updated = old.updateWith(newProduct);
@@ -64,7 +69,7 @@ public class ProductService {
                 });
     }
 
-    public void delete(Long id) {
+    public void delete(int id) {
         productRepository.deleteById(id);
     }
 
